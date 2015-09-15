@@ -32,10 +32,11 @@ app.use(function (req, res, next) {
 // ========== Routing ==========
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Unity Web Player | Earth Invasion' });
-})
+  console.log('got root route. Redirecting according to req.session.user')
+  req.session.user ? res.render('index', { title: 'Unity Web Player | Earth Invasion' }) : res.redirect('/login');
+});
 
-app.use('/user', userRoutes)
+app.use('/', userRoutes);
 
 // ========== Errors ==========
 

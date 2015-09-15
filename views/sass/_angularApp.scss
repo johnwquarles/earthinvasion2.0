@@ -10,15 +10,8 @@
     width: $AngularAppWidth;
   }
 
-  .login {
-    form {
-      label {
-        display: block;
-      }
-      input {
-        color: black;
-      }
-    }
+  button {
+    color: black;
   }
 
 }

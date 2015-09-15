@@ -1,4 +1,4 @@
-angular.module('app.controllers')
+angular.module('loginApp', [])
 .controller('loginCtrl', function($http, $window) {
   var vm = this;
 

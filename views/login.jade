@@ -1,0 +1,18 @@
+extends ./partials/_layout.jade
+
+block content
+  .container.login(ng-app='app')
+    p Welcome to EarthInvasion!
+    p Login or create an account to collect achievements and post to the leaderboards.
+    form(ng-controller='loginCtrl as login')
+      .form-group
+        label(for='username') Username
+        input(id='username', placeholder='username', type='text', ng-model='login.username', required)
+      .form-group
+        label(for='password') Password
+        input(id='password', placeholder='password', type='password', ng-model='login.password')
+      .form-group
+        .button-group-container
+          .btn-group.btn-group-md(role='group')
+            button.btn.btn-success(ng-click='login.login()') LogIn
+            button.btn.btn-info(ng-click='login.register()') Register

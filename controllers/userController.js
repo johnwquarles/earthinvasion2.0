@@ -11,13 +11,16 @@ module.exports.login = function (req, res) {
         )
       );
     }
-    req.session.user = userObj;
-    req.session.save(function (err) {
-      if (err) {console.log(err);}
-      else {console.log(chalk.yellow(`      === saved user to session ID: ${req.sessionID}`));}
+    req.session.regenerate(function () {
+      req.session.user = userObj;
+      // req.session.save(function (err) {
+      //   if (err) {console.log(err);}
+      //   else {console.log(chalk.yellow(`      === saved user to session ID: ${req.sessionID}`));}
+      // })
+      console.log(chalk.yellow(`      === session ID is currently: ${req.sessionID}`));
+      console.log(chalk.green.dim(`     = user ${userObj.username} logged in!`))
+      res.end();
     })
-    console.log(chalk.yellow(`      === session ID is currently: ${req.sessionID}`));
-    console.log(chalk.green.dim(`     = user ${userObj.username} logged in!`))
   });
 }
 
@@ -32,6 +35,13 @@ module.exports.register = function (req, res) {
     }
     console.log(chalk.green.dim(`     = user ${req.query.username} created!`));
     module.exports.login(req, res);
+  });
+}
+
+module.exports.logout = function (req, res) {
+  req.session.regenerate(function () {
+    console.log(chalk.red(`     = Logged out!`));
+    res.end();
   });
 }
 

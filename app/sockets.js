@@ -1,17 +1,17 @@
 var socketio = require('socket.io'),
-    // sharedsession = require('express-socket.io-session'),
+    sharedsession = require('express-socket.io-session'),
     chalk = require('chalk');
 
 module.exports = function (session, server) {
   console.log(chalk.blue(`== socket handler listening! ==\n`));
   var io = socketio(server);
 
-  // io.use(sharedsession(session, {
-  //   autoSave: true
-  // }));
+  io.use(sharedsession(session, {
+    autoSave: true
+  }));
 
   io.on('connection', function (socket) {
-    console.log(chalk.green(`== Client connected: ${socket.id} ==`));
+    console.log(chalk.green(`== Client connected: ${socket.id}. User is: ${socket.handshake.session.user.username} ==`));
 
     socket.on('test', function (obj) {
       // test out socket.handshake.session !

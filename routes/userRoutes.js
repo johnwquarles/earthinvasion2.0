@@ -4,7 +4,11 @@ var express = require('express'),
     ctrl = require(path.join(__dirname, '/../controllers/userController'));
 
 router
-  .get('/login', ctrl.login)
-  .get('/register', ctrl.register);
+  .get('/login', function (req, res) {
+    req.session.user ? res.redirect('/'): res.render('login', {title: "Earth Invasion | Login or Register"});
+  })
+  .get('/loginReq', ctrl.login)
+  .get('/registerReq', ctrl.register)
+  .get('/logoutReq', ctrl.logout);
 
 module.exports = router;
