@@ -1,0 +1,11 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+
+  .wrapper {
+    display: block;
+    width: $sectionWidth;
+    margin: auto;
+  }
+}

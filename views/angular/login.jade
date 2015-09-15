@@ -1,0 +1,10 @@
+p Welcome to EarthInvasion!
+p Login or create an account to collect achievements and post to the leaderboards.
+.container
+  form
+    label(for='email') Email Address
+    input(id='email', placeholder='email', type='email', ng-model='login.email', required)
+    label(for='password') Password
+    input(id='password', placeholder='password', type='password', ng-model='login.password')
+    button(ng-click='login.login()') LogIn
+    button(ng-click='login.register()') Register

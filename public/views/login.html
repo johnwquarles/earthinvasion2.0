@@ -1,0 +1,13 @@
+
+<p>Welcome to EarthInvasion!</p>
+<p>Login or create an account to collect achievements and post to the leaderboards.</p>
+<div class="container">
+  <form>
+    <label for="email">Email Address</label>
+    <input id="email" placeholder="email" type="email" ng-model="login.email" required="required"/>
+    <label for="password">Password</label>
+    <input id="password" placeholder="password" type="password" ng-model="login.password"/>
+    <button ng-click="login.login()">LogIn</button>
+    <button ng-click="login.register()">Register</button>
+  </form>
+</div>
