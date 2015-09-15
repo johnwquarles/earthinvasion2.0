@@ -3,5 +3,4 @@
 $sectionHeight : 600px;
 $UnityWidth : 960px;
 $AngularAppWidth : 360px;
-// Leaving a bit of breathing room for borders; get rid of for production
-$sectionWidth : $UnityWidth + $AngularAppWidth + 10px;
+$sectionWidth : $UnityWidth + $AngularAppWidth;

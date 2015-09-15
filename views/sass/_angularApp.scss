@@ -1,7 +1,24 @@
-.angularAppSection {
-  border: 2px solid blue;
+.angularAppSection, {
+  border: 1px solid blue;
   text-align: left;
   height: $sectionHeight;
   width: $AngularAppWidth;
   float: left;
+
+  // bootstrap .container plus ng-scope gets rid of width constraints?
+  .container.ng-scope {
+    width: $AngularAppWidth;
+  }
+
+  .login {
+    form {
+      label {
+        display: block;
+      }
+      input {
+        color: black;
+      }
+    }
+  }
+
 }

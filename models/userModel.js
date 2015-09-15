@@ -1,3 +1,6 @@
+// HEY, note: because this is a function that executes and RETURNS the User object,
+// be sure to execute the require statement, ie userModel = require('userModel blah')();
+
 module.exports = function (dbName) {
 
   var _ = require('lodash'),

@@ -1,16 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     path = require('path'),
-    userModel = require(path.join(__dirname, "/../models/userModel"));
+    ctrl = require(path.join(__dirname, '/../controllers/userController'));
 
 router
-  .get('/login', function(req, res) {
-    console.log(`received login request. email: ${req.query.email}, pass: ${req.query.password}`)
-    res.end();
-  })
-  .get('/register', function(req, res) {
-    console.log(`received registration request. email: ${req.query.email}, pass: ${req.query.password}`)
-    res.end();
-  });
+  .get('/login', ctrl.login)
+  .get('/register', ctrl.register);
 
 module.exports = router;
