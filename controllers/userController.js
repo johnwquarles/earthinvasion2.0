@@ -1,5 +1,8 @@
+// writing: req.session.username = userObj.username;
+
 var path = require('path'),
     userModel = require(path.join(__dirname, '/../models/userModel'))(),
+    guestGen = require(path.join(__dirname, '/../app/guestGen')),
     chalk = require('chalk');
 
 module.exports.login = function (req, res) {
@@ -12,11 +15,7 @@ module.exports.login = function (req, res) {
       );
     }
     req.session.regenerate(function () {
-      req.session.user = userObj;
-      // req.session.save(function (err) {
-      //   if (err) {console.log(err);}
-      //   else {console.log(chalk.yellow(`      === saved user to session ID: ${req.sessionID}`));}
-      // })
+      req.session.username = userObj.username;
       console.log(chalk.yellow(`      === session ID is currently: ${req.sessionID}`));
       console.log(chalk.green.dim(`     = user ${userObj.username} logged in!`))
       res.end();
@@ -36,6 +35,21 @@ module.exports.register = function (req, res) {
     console.log(chalk.green.dim(`     = user ${req.query.username} created!`));
     module.exports.login(req, res);
   });
+}
+
+module.exports.guest = function (req, res) {
+  var guestName;
+  (function tryName () {
+    guestName = guestGen();
+    console.log(`trying: ${guestName}`);
+    userModel.findByUsername(guestName, function (err, result) {
+      return result ? tryName() : proceed();
+    })
+  })();
+  function proceed () {
+    req.query = {username: guestName, password: ''+(Math.random() * 1000000000)};
+    module.exports.register(req, res)
+  }
 }
 
 module.exports.logout = function (req, res) {

@@ -21,8 +21,8 @@ app.use(session);
 
 app.use(function (req, res, next) {
   console.log(chalk.yellow(`      === session ID: ${req.sessionID}`));
-  if (req.session.user) {
-    console.log(`user ${req.session.user.username} is logged in already`);
+  if (req.session.username) {
+    console.log(`user ${req.session.username} is logged in`);
   } else {
     console.log(`user isn't logged in`);
   }
@@ -32,8 +32,7 @@ app.use(function (req, res, next) {
 // ========== Routing ==========
 
 app.get('/', function (req, res) {
-  console.log('got root route. Redirecting according to req.session.user')
-  req.session.user ? res.render('index', { title: 'Unity Web Player | Earth Invasion' }) : res.redirect('/login');
+  req.session.username ? res.render('index', { title: 'Unity Web Player | Earth Invasion' }) : res.redirect('/login');
 });
 
 app.use('/', userRoutes);

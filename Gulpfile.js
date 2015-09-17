@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     LRPORT = 35729;
 
 gulp.task('clean', function (cb) {
-  $.del(['public/js/*.js', 'public/css/*.css', 'public/lib/*.js', 'public/lib/*.css'])
+  $.del(['public/js/*.js', 'public/css/*.css', 'public/lib/*.js', 'public/lib/*.css', 'public/views/*.html'])
    .then(function () {cb()})
    .catch(function (err) {console.log(err);});
 })

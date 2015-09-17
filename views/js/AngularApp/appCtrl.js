@@ -6,10 +6,14 @@ angular.module('app.controllers')
   vm.logout = function () {
     $http.get('/logoutReq')
     .then(hardRedirect)
-    .catch(function(err) {if (err) console.log(err);});
+    .catch(errHandle);
   }
 
   function hardRedirect () {
     $window.location.href = `${$window.location.origin}/`;
+  }
+
+  function errHandle (err) {
+    console.log(err);
   }
 })

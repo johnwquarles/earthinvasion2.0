@@ -5,17 +5,27 @@ angular.module('app.controllers')
   vm.login = function () {
     $http.get('/loginReq', {params: {username: vm.username, password: vm.password} })
     .then(hardRedirect)
-    .catch(function(err) {console.log(err);});
+    .catch(errHandle);
   }
 
   vm.register = function () {
     $http.get('/registerReq', {params: {username: vm.username, password: vm.password} })
     .then(hardRedirect)
-    .catch(function(err) {console.log(err);});
+    .catch(errHandle);
+  }
+
+  vm.guest = function () {
+    $http.get('/guestReq')
+    .then(hardRedirect)
+    .catch(errHandle);
   }
 
   function hardRedirect () {
     $window.location.href = `${$window.location.origin}/`;
+  }
+
+  function errHandle (err) {
+    console.log(err);
   }
 })
   // this is how the sockets workkkk:

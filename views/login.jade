@@ -7,12 +7,13 @@ block content
     form(ng-controller='loginCtrl as login')
       .form-group
         label(for='username') Username
-        input(id='username', placeholder='username', type='text', ng-model='login.username', required)
+        input(id='username', placeholder='username', type='text', ng-model='login.username')
       .form-group
         label(for='password') Password
         input(id='password', placeholder='password', type='password', ng-model='login.password')
       .form-group
         .button-group-container
           .btn-group.btn-group-md(role='group')
-            button.btn.btn-success(ng-click='login.login()') LogIn
+            button.btn.btn-success(ng-click='login.login()') Log In
             button.btn.btn-info(ng-click='login.register()') Register
+            button.btn.btn-primary(ng-click='login.guest()') Play as Guest
