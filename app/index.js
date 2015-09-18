@@ -9,7 +9,8 @@ var app = require('express')(),
     path = require('path'),
     socketHandler = require(path.join(__dirname, '/sockets'));
 
-var userRoutes = require(path.join(__dirname, '/../routes/userRoutes'));
+var userRoutes = require(path.join(__dirname, '/../routes/userRoutes')),
+    playerDataRoutes = require(path.join(__dirname, '/../routes/playerDataRoutes'));
 
 app.set('views', path.join(__dirname, '/../views'));
 app.set('view engine', 'jade');
@@ -36,6 +37,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/', userRoutes);
+app.use('/data', playerDataRoutes);
 
 // ========== Errors ==========
 

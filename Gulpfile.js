@@ -47,10 +47,12 @@ gulp.task('jade', function () {
 gulp.task('bower', function() {
   // no bower.json to specify main bower file for socket.io.client, grumble
   var socketContent = fs.readFileSync(__dirname + '/public/bower_components/socket.io-client/socket.io.js').toString();
+  var bootstrapTabs = fs.readFileSync(__dirname + '/public/bower_components/bootstrap/js/tab.js').toString();
   gulp
     .src($.mainBowerFiles('**/*.js'))
     .pipe($.concat('build.js'))
     .pipe($.insert.append(socketContent))
+    .pipe($.insert.append(bootstrapTabs))
     .pipe(gulp.dest('./public/lib'));
   gulp
     .src($.mainBowerFiles('**/*.less'))

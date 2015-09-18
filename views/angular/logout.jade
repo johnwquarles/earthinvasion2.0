@@ -1,0 +1,6 @@
+extends ./partials/_layout.jade
+
+block content
+  .logout(ng-controller='tabsCtrl as ctrl')
+    p we await your return.
+    button(ng-click='ctrl.logout()') logout

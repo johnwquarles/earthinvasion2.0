@@ -1,0 +1,17 @@
+.tabs {
+  font-size: 8px;
+  .center-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    a {
+      text-align: center;
+      color: red;
+    }
+  }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color:black;
+  background-color: red;
+}

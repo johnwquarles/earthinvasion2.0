@@ -1,0 +1,4 @@
+.tabs(role='navigation', ng-controller='tabsCtrl as ctrl')
+  ul.nav.nav-pills.center-pills.red
+    li(ng-repeat='tab in ctrl.tabs', ng-class="{'active': ctrl.isSelected(tab.link)}")
+      a(ng-click='ctrl.setActive(tab.link)', ng-href='#/{{tab.link}}') {{tab.name}}
