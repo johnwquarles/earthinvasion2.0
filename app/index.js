@@ -9,8 +9,7 @@ var app = require('express')(),
     path = require('path'),
     socketHandler = require(path.join(__dirname, '/sockets'));
 
-var userRoutes = require(path.join(__dirname, '/../routes/userRoutes')),
-    playerDataRoutes = require(path.join(__dirname, '/../routes/playerDataRoutes'));
+var userRoutes = require(path.join(__dirname, '/../routes/userRoutes'));
 
 app.set('views', path.join(__dirname, '/../views'));
 app.set('view engine', 'jade');
@@ -35,6 +34,8 @@ app.use(function (req, res, next) {
 app.get('/', function (req, res) {
   req.session.username ? res.render('index', { title: 'Unity Web Player | Earth Invasion' }) : res.redirect('/login');
 });
+
+app.use('/', userRoutes);
 
 app.use('/usernameReq', function (req, res) {
   res.send(req.session.username);

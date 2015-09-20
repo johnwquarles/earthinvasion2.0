@@ -1,6 +1,5 @@
 extends ./partials/_layout.jade
 
 block content
-  .timeCard(ng-controller='appCtrl as ctrl')
-    p this is the time card
-    p(ng-repeat='time in ctrl.getTimes() track by $index') wave {{time.wave}}, {{time.timeElapsed}} seconds
+  .timeCard(ng-controller='timeCardCtrl as ctrl')
+    p(ng-repeat='time in ctrl.getTimes()') {{time.message}}{{time.timeElapsed}} seconds

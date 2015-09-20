@@ -1,5 +1,5 @@
 extends ./partials/_layout.jade
 
 block content
-  .accuracyCard
-    p this is the accuracy card
+  .accuracyCard(ng-controller='accuracyCardCtrl as ctrl')
+    p(ng-repeat='accuracy in ctrl.getAccuracies()') {{accuracy.message}}{{accuracy.accuracy}}%

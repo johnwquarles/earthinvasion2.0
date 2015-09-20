@@ -4,6 +4,6 @@
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div class="accuracyCard">
-  <p>this is the accuracy card</p>
+<div ng-controller="accuracyCardCtrl as ctrl" class="accuracyCard">
+  <p ng-repeat="accuracy in ctrl.getAccuracies()">{{accuracy.message}}{{accuracy.accuracy}}%</p>
 </div>

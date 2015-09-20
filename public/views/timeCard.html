@@ -4,7 +4,6 @@
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div ng-controller="appCtrl as ctrl" class="timeCard">
-  <p>this is the time card</p>
-  <p ng-repeat="time in ctrl.getTimes() track by $index">wave {{time.wave}}, {{time.timeElapsed}} seconds</p>
+<div ng-controller="timeCardCtrl as ctrl" class="timeCard">
+  <p ng-repeat="time in ctrl.getTimes()">{{time.message}}{{time.timeElapsed}} seconds</p>
 </div>
