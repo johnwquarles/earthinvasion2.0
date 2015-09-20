@@ -1,8 +1,10 @@
 extends ./partials/_layout.jade
 
 block content
-  .accuracyCard(ng-controller='accuracyCardCtrl as ctrl')
-    table.table.table-condensed
-      tr(ng-repeat='accuracy in ctrl.getAccuracies()')
-        td {{accuracy.message}}
-        td {{accuracy.accuracy}}%
+  .controllerHolder(ng-controller='accuracyCardCtrl as ctrl')
+    p.explanation(ng-show='ctrl.getAccuracies().length === 0') Your shooting accuracy for each wave will be displayed here, and will populate as you play
+      .accuracyCard
+        table.table.table-condensed
+          tr(ng-repeat='accuracy in ctrl.getAccuracies()')
+            td {{accuracy.message}}
+            td {{accuracy.accuracy}}%

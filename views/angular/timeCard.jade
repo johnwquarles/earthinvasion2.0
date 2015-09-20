@@ -1,8 +1,10 @@
 extends ./partials/_layout.jade
 
 block content
-  .timeCard(ng-controller='timeCardCtrl as ctrl')
-    table.table.table-condensed
-      tr(ng-repeat='time in ctrl.getTimes()')
-        td {{time.message}}
-        td {{time.timeElapsed}} seconds
+  .controllerHolder(ng-controller='timeCardCtrl as ctrl')
+    p.explanation(ng-show='ctrl.getTimes().length === 0') Your splits through each wave will be displayed here, and will populate as you play
+      .timeCard
+        table.table.table-condensed
+          tr(ng-repeat='time in ctrl.getTimes()')
+            td {{time.message}}
+            td {{time.timeElapsed}} seconds

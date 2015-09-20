@@ -5,11 +5,15 @@
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div ng-controller="accuracyCardCtrl as ctrl" class="accuracyCard">
-  <table class="table table-condensed">
-    <tr ng-repeat="accuracy in ctrl.getAccuracies()">
-      <td>{{accuracy.message}}</td>
-      <td>{{accuracy.accuracy}}%</td>
-    </tr>
-  </table>
+<div ng-controller="accuracyCardCtrl as ctrl" class="controllerHolder">
+  <p ng-show="ctrl.getAccuracies().length === 0" class="explanation">Your shooting accuracy for each wave will be displayed here, and will populate as you play
+    <div class="accuracyCard">
+      <table class="table table-condensed">
+        <tr ng-repeat="accuracy in ctrl.getAccuracies()">
+          <td>{{accuracy.message}}</td>
+          <td>{{accuracy.accuracy}}%</td>
+        </tr>
+      </table>
+    </div>
+  </p>
 </div>
