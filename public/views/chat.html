@@ -1,4 +1,5 @@
 
+<p class="title">earth invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>

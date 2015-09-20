@@ -3,5 +3,7 @@ extends ./partials/_layout.jade
 block content
   .achievements(ng-controller='achievementCtrl as ctrl')
     .achievementWrapper(ng-repeat='achievement in ctrl.getAchievements()')
-      p {{achievement.title}}
-      p {{achievement.description}}
+      .achievementIcon
+        .textWrap
+          p.title {{achievement.title}}
+          p.description {{achievement.description}}

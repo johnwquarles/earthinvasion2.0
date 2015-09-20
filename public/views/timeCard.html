@@ -1,9 +1,15 @@
 
+<p class="title">earth invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
 <div ng-controller="timeCardCtrl as ctrl" class="timeCard">
-  <p ng-repeat="time in ctrl.getTimes()">{{time.message}}{{time.timeElapsed}} seconds</p>
+  <table class="table table-condensed">
+    <tr ng-repeat="time in ctrl.getTimes()">
+      <td>{{time.message}}</td>
+      <td>{{time.timeElapsed}} seconds</td>
+    </tr>
+  </table>
 </div>

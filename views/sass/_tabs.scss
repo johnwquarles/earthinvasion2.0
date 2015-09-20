@@ -16,3 +16,8 @@
   color:black;
   background-color: red;
 }
+
+.nav-pills > li > a:hover {
+  color: black;
+  background-color: $tabHover;
+}

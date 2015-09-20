@@ -2,4 +2,7 @@ extends ./partials/_layout.jade
 
 block content
   .timeCard(ng-controller='timeCardCtrl as ctrl')
-    p(ng-repeat='time in ctrl.getTimes()') {{time.message}}{{time.timeElapsed}} seconds
+    table.table.table-condensed
+      tr(ng-repeat='time in ctrl.getTimes()')
+        td {{time.message}}
+        td {{time.timeElapsed}} seconds

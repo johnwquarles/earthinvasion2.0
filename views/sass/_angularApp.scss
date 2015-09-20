@@ -4,6 +4,9 @@
   width: $AngularAppWidth;
   float: left;
 
+  .title {
+    text-align: center;
+  }
   // bootstrap .container plus ng-scope gets rid of width constraints?
   .container.ng-scope {
     width: $AngularAppWidth;

@@ -1,9 +1,15 @@
 
+<p class="title">earth invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
 <div ng-controller="accuracyCardCtrl as ctrl" class="accuracyCard">
-  <p ng-repeat="accuracy in ctrl.getAccuracies()">{{accuracy.message}}{{accuracy.accuracy}}%</p>
+  <table class="table table-condensed">
+    <tr ng-repeat="accuracy in ctrl.getAccuracies()">
+      <td>{{accuracy.message}}</td>
+      <td>{{accuracy.accuracy}}%</td>
+    </tr>
+  </table>
 </div>
