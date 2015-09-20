@@ -8,5 +8,8 @@ angular.module('app.factories')
   returnObj.getTimes = function () {
     return this.times;
   }
+  returnObj.clear = function () {
+    this.times = [];
+  }
   return returnObj;
 })

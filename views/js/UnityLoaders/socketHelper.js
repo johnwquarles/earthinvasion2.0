@@ -11,3 +11,7 @@ function sendAchievementHelper (achievementId) {
 function sendAccuracyHelper (message, accuracy) {
   socket.emit('accuracy', {message: message, accuracy: accuracy});
 }
+
+function clearCardsHelper () {
+  socket.emit('clearCards');
+}

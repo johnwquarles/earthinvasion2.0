@@ -8,5 +8,8 @@ angular.module('app.factories')
   returnObj.getAccuracies = function () {
     return this.accuracies;
   }
+  returnObj.clear = function () {
+    this.accuracies = [];
+  }
   return returnObj;
 })

@@ -3,14 +3,19 @@ angular.module('app.run', [])
   $rootScope.socket = io();
   $rootScope.socket.on('time', function (data) {
     timeCard.addTime(data);
-    $rootScope.$broadcast('timeReceived');
+    $rootScope.$broadcast('refresh');
   })
   $rootScope.socket.on('accuracy', function (data) {
     accuracyCard.addAccuracy(data);
-    $rootScope.$broadcast('accuracyReceived');
+    $rootScope.$broadcast('refresh');
   })
-  $rootScope.socket.on('achievement', function (num) {
-    achievement.addAchievement(num);
-    $rootScope.$broadcast('achievementReceived');
+  $rootScope.socket.on('achievement', function (data) {
+    achievement.addAchievement(data);
+    $rootScope.$broadcast('refresh');
+  })
+  $rootScope.socket.on('clearCards', function () {
+    timeCard.clear();
+    accuracyCard.clear();
+    $rootScope.$broadcast('refresh');
   })
 });

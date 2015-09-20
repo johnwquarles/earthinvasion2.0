@@ -1,7 +1,7 @@
 angular.module('app.controllers')
 .controller('achievementCtrl', function($scope, achievement) {
   var vm = this;
-  $scope.$on('achievementReceived', function () {
+  $scope.$on('refresh', function () {
     $scope.$apply();
   })
   vm.getAchievements = function () {

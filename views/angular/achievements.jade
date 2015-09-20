@@ -1,9 +1,7 @@
 extends ./partials/_layout.jade
 
 block content
-  .achievements
-    p this is the achievements page
-
-block content
   .achievements(ng-controller='achievementCtrl as ctrl')
-    p(ng-repeat='achievement in ctrl.getAchievements()') Achievement {{achievement}}
+    .achievementWrapper(ng-repeat='achievement in ctrl.getAchievements()')
+      p {{achievement.title}}
+      p {{achievement.description}}

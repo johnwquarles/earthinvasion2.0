@@ -4,6 +4,9 @@
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div class="achievements">
-  <p>this is the achievements page</p>
+<div ng-controller="achievementCtrl as ctrl" class="achievements">
+  <div ng-repeat="achievement in ctrl.getAchievements()" class="achievementWrapper">
+    <p>{{achievement.title}}</p>
+    <p>{{achievement.description}}</p>
+  </div>
 </div>
