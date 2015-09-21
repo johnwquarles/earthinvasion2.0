@@ -1,10 +1,35 @@
 
-<p class="title">earth invasion 2.0</p>
+<p class="title">Earth Invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div class="leaderboards">
-  <p>this is the leaderboards page</p>
+<div ng-controller="leaderboardCtrl as ctrl" class="leaderboards">
+  <div ng-show="ctrl.whichBoard()" class="timeBoard">
+    <table class="table table-condensed">
+      <thead>
+        <th class="active">Top Times</th>
+        <th ng-click="ctrl.setBoardToAccuracies()">Top Total Accuracies</th>
+      </thead>
+      <tr ng-repeat="time in ctrl.getTimes()">
+        <td>{{$index + 1}}</td>
+        <td>{{time.username}}</td>
+        <td>{{ctrl.formatTime(time.time)}}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-hide="ctrl.whichBoard()" class="accuracyBoard">
+    <table class="table table-condensed">
+      <thead>
+        <th ng-click="ctrl.setBoardToTimes()">Top Times</th>
+        <th class="active">Top Total Accuracies</th>
+      </thead>
+      <tr ng-repeat="accuracy in ctrl.getAccuracies()">
+        <td>{{$index + 1}}</td>
+        <td>{{accuracy.username}}</td>
+        <td>{{ctrl.formatPercentage(accuracy.percentage)}}%</td>
+      </tr>
+    </table>
+  </div>
 </div>

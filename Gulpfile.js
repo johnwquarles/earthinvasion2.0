@@ -15,7 +15,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('sass', function () {
   gulp
-    .src('views/sass/main.scss')
+    .src(['views/sass/main.scss', 'views/sass/login.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.sourcemaps.write())

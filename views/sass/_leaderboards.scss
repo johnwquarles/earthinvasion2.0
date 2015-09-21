@@ -1,0 +1,40 @@
+.leaderboards {
+  .timeBoard {
+    table.table.table-condensed {
+      .active {
+        border-top-left-radius: $leaderboardTabRadius;
+        border-top-right-radius: $leaderboardTabRadius;
+        color: black;
+      }
+      font-family: "Trebuchet MS";
+      font-size: 16px;
+      th {
+        cursor: pointer;
+        font-size: 10px;
+        font-family: 'early_gameboyregular', Arial, sans-serif;
+      }
+      th.active {
+        cursor: default;
+      }
+    }
+  }
+  .accuracyBoard {
+    table.table.table-condensed {
+      .active {
+        border-top-left-radius: $leaderboardTabRadius;
+        border-top-right-radius: $leaderboardTabRadius;
+        color: black;
+      }
+      font-family: "Trebuchet MS";
+      font-size: 16px;
+      th {
+        cursor: pointer;
+        font-size: 10px;
+        font-family: 'early_gameboyregular', Arial, sans-serif;
+      }
+      th.active {
+        cursor: default;
+      }
+    }
+  }
+}

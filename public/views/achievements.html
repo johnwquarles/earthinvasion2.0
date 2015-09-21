@@ -1,12 +1,13 @@
 
-<p class="title">earth invasion 2.0</p>
+<p class="title">Earth Invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div ng-controller="achievementCtrl as ctrl" class="achievements">
-  <div ng-repeat="achievement in ctrl.getAchievements()" class="achievementWrapper">
+<div ng-controller="achievementCtrl as ctrl" class="controllerHolder">
+  <p ng-show="ctrl.getAchievements().length === 0" class="explanation">Your achievements will pop in here as you earn them.</p>
+  <div ng-repeat="achievement in ctrl.getAchievements()" class="achievements">
     <div class="achievementIcon">
       <div class="textWrap">
         <p class="title">{{achievement.title}}</p>

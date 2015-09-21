@@ -1,10 +1,21 @@
 
-<p class="title">earth invasion 2.0</p>
+<p class="title">Earth Invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
-<div class="chat">
-  <p>this is the chat page</p>
+<div ng-controller="chatCtrl as ctrl" class="controllerHolder">
+  <div class="chat">
+    <table>
+      <tr ng-repeat="message in ctrl.getMessages()">
+        <td class="username">{{message.username}}: </td>
+        <td class="message">{{message.message}}</td>
+      </tr>
+    </table>
+    <form ng-submit="ctrl.sendMessage()">
+      <input placeholder="Enter message here" type="text" ng-model="ctrl.messageEntry" class="message"/>
+      <input type="submit" value="send"/>
+    </form>
+  </div>
 </div>

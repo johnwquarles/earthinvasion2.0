@@ -7,13 +7,15 @@ var app = require('express')(),
       saveUninitialized: true
     }),
     path = require('path'),
-    socketHandler = require(path.join(__dirname, '/sockets'));
+    socketHandler = require(path.join(__dirname, '/sockets')),
+    favicon = require('serve-favicon');
 
-var userRoutes = require(path.join(__dirname, '/../routes/userRoutes'));
+var userRoutes = require(path.join(__dirname, '..', 'routes', 'userRoutes'));
 
-app.set('views', path.join(__dirname, '/../views'));
+app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')))
 
 // ========== Session ==========
 

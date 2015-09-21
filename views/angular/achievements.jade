@@ -1,8 +1,9 @@
 extends ./partials/_layout.jade
 
 block content
-  .achievements(ng-controller='achievementCtrl as ctrl')
-    .achievementWrapper(ng-repeat='achievement in ctrl.getAchievements()')
+  .controllerHolder(ng-controller='achievementCtrl as ctrl')
+    p.explanation(ng-show='ctrl.getAchievements().length === 0') Your achievements will pop in here as you earn them.
+    .achievements(ng-repeat='achievement in ctrl.getAchievements()')
       .achievementIcon
         .textWrap
           p.title {{achievement.title}}

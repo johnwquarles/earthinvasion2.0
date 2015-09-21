@@ -1,12 +1,12 @@
 
-<p class="title">earth invasion 2.0</p>
+<p class="title">Earth Invasion 2.0</p>
 <div role="navigation" ng-controller="tabsCtrl as ctrl" class="tabs">
   <ul class="nav nav-pills center-pills red">
     <li ng-repeat="tab in ctrl.tabs" ng-class="{'active': ctrl.isSelected(tab.link)}"><a ng-click="ctrl.setActive(tab.link)" ng-href="#/{{tab.link}}">{{tab.name}}</a></li>
   </ul>
 </div>
 <div ng-controller="timeCardCtrl as ctrl" class="controllerHolder">
-  <p ng-show="ctrl.getTimes().length === 0" class="explanation">Your splits through each wave will be displayed here, and will populate as you play
+  <p ng-show="ctrl.getTimes().length === 0" class="explanation">Your splits through each wave will be displayed here, and will fill in as you play.
     <div class="timeCard">
       <table class="table table-condensed">
         <tr ng-repeat="time in ctrl.getTimes()">

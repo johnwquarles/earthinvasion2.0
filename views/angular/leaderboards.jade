@@ -1,5 +1,22 @@
 extends ./partials/_layout.jade
 
 block content
-  .leaderboards
-    p this is the leaderboards page
+  .leaderboards(ng-controller='leaderboardCtrl as ctrl')
+    .timeBoard(ng-show='ctrl.whichBoard()')
+      table.table.table-condensed
+        thead
+          th.active Top Times
+          th(ng-click='ctrl.setBoardToAccuracies()') Top Total Accuracies
+        tr(ng-repeat='time in ctrl.getTimes()')
+          td {{$index + 1}}
+          td {{time.username}}
+          td {{ctrl.formatTime(time.time)}}
+    .accuracyBoard(ng-hide='ctrl.whichBoard()')
+      table.table.table-condensed
+        thead
+          th(ng-click='ctrl.setBoardToTimes()') Top Times
+          th.active Top Total Accuracies
+        tr(ng-repeat='accuracy in ctrl.getAccuracies()')
+          td {{$index + 1}}
+          td {{accuracy.username}}
+          td {{ctrl.formatPercentage(accuracy.percentage)}}%

@@ -1,5 +1,5 @@
 .tabs {
-  font-size: 8px;
+  font-size: 10px;
   margin-bottom: 12px;
   .center-pills {
     display: flex;
@@ -10,6 +10,10 @@
       color: red;
     }
   }
+}
+
+.tabs .center-pills a {
+  padding: 5px 5px;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {

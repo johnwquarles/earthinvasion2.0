@@ -1,5 +1,12 @@
 extends ./partials/_layout.jade
 
 block content
-  .chat
-    p this is the chat page
+  .controllerHolder(ng-controller='chatCtrl as ctrl')
+    .chat
+      table
+        tr(ng-repeat='message in ctrl.getMessages()')
+          td.username {{message.username}}: 
+          td.message {{message.message}}
+      form(ng-submit='ctrl.sendMessage()')
+        input.message(placeholder='Enter message here', type='text' ng-model='ctrl.messageEntry')
+        input(type='submit' value='send')
