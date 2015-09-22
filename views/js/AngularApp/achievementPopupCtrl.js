@@ -11,6 +11,7 @@ angular.module('app.controllers')
     vm.title = achievementObj.title;
     displayPopup = true;
     audio.play();
+    $scope.$apply();
     $timeout(function () {
       displayPopup = false;
     }, 4000);
