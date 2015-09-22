@@ -6,7 +6,7 @@ module.exports = function (dbName) {
   var _ = require('lodash'),
       pg = require('pg'),
       db = dbName ? dbName : 'earthinvasion',
-      url = process.env.DATABASE_URL ? DATABASE_URL : `postgres://localhost:5432/${db}`;
+      url = process.env.DATABASE_URL ? process.env.DATABASE_URL : `postgres://localhost:5432/${db}`;
 
   var Model = function (achievementid, cb) {
     makeQuery(`SELECT * FROM achievements WHERE achievementid = ${achievementid}`, function (err, result) {
