@@ -7,7 +7,7 @@ module.exports = function (dbName) {
       bcrypt = require('bcrypt'),
       pg = require('pg'),
       db = dbName ? dbName : 'earthinvasion',
-      url = `postgres://localhost:5432/${db}`;
+      url = process.env.DATABASE_URL ? DATABASE_URL : `postgres://localhost:5432/${db}`;
 
   // ========== Constructor ==========
 

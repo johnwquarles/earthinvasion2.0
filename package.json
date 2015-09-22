@@ -4,7 +4,8 @@
   "description": "Earth Invasion 2.0, with user accounts, unlockable achievements, perhaps chat, and more?",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
