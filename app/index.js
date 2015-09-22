@@ -1,11 +1,10 @@
 var app = require('express')(),
     chalk = require('chalk'),
-    express= require('express'),
-    session = require('express-session')({
-      secret: 'iHopeDubstepNeverEnds',
-      resave: false,
-      saveUninitialized: true
-    }),
+    express = require('express'),
+    redis = require('redis'),
+    session = require('express-session'),
+    redisStore = require('connect-redis')(session),
+    redisClient = redis.createClient(),
     path = require('path'),
     socketHandler = require(path.join(__dirname, '/sockets')),
     favicon = require('serve-favicon');
@@ -19,7 +18,14 @@ app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')))
 
 // ========== Session ==========
 
-app.use(session);
+var newSession = require('express-session')({
+  secret: 'iHopeDubstepNeverEnds',
+  store: new redisStore({ host: 'localhost', port: 6376, client: redisClient, ttl: 260}),
+  resave: false,
+  saveUninitialized: true
+});
+
+app.use(newSession);
 
 app.use(function (req, res, next) {
   console.log(chalk.yellow(`      === session ID: ${req.sessionID}`));
@@ -64,7 +70,7 @@ function startNodeListener() {
 
     console.log(chalk.blue(`\n=== === === `) + chalk.cyan(`Server listening on port ${port} in ${mode} mode...`) + chalk.blue(` === === ===\n`));
     // ========== Sockets ==========
-    socketHandler(session, server);
+    socketHandler(newSession, server);
   })
 }
 
