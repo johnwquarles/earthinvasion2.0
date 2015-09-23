@@ -20,7 +20,11 @@ app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')))
 
 var newSession = require('express-session')({
   secret: 'iHopeDubstepNeverEnds',
-  store: new redisStore({ host: 'localhost', port: 6376, client: redisClient, ttl: 260}),
+  store: new redisStore({ host: process.env.REDIS_URL ? 'ec2-54-235-152-160.compute-1.amazonaws.com': 'localhost',
+                          port: process.env.REDIS_URL ? 17469: 6376,
+                          client: redisClient,
+                          ttl: 260
+                        }),
   resave: false,
   saveUninitialized: true
 });
