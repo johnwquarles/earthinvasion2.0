@@ -4,7 +4,7 @@ var app = require('express')(),
     redis = require('redis'),
     session = require('express-session'),
     redisStore = require('connect-redis')(session),
-    redisClient = redis.createClient(),
+    redisClient = process.env.REDIS_URL ? redis.createClient(process.env.REDIS_URL) : redis.createClient(),
     path = require('path'),
     socketHandler = require(path.join(__dirname, '/sockets')),
     favicon = require('serve-favicon');
@@ -17,15 +17,12 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')))
 
 // ========== Session ==========
-var redisHost = process.env.REDIS_URL ? 'ec2-54-235-152-160.compute-1.amazonaws.com': 'localhost',
-    redisPort = process.env.REDIS_URL ? 17469 : 6376,
-    newSession = require('express-session')({
+var redisStoreOptions = process.env.REDIS_URL ?
+                        {client: redisClient, ttl: 260} :
+                        {client: redisClient, host: 'localhost', port: 6376, ttl: 260};
+var newSession = require('express-session')({
   secret: 'iHopeDubstepNeverEnds',
-  store: new redisStore({ host: redisHost,
-                          port: redisPort,
-                          client: redisClient,
-                          ttl: 260
-                        }),
+  store: new redisStore(redisStoreOptions),
   resave: false,
   saveUninitialized: true
 });
