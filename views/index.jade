@@ -4,6 +4,7 @@ block content
 
   body(ng-app='app')
     .wrapper
+      include ./partials/_achievementPopup.jade
       .unityPlayerSection
         //- p.header
         //-   span Unity Web Player | Earth Invasion
@@ -16,5 +17,4 @@ block content
         //-   | « created with 
         //-   a(href='http://unity3d.com/unity/', title='Go to unity3d.com') Unity
         //-   |  »
-        include ./partials/_achievementPopup.jade
       .angularAppSection(ng-view)
