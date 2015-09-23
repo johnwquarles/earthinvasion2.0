@@ -1,12 +1,12 @@
 .unityPlayerSection {
-    margin: 0 25px;
-    font-family: Helvetica, Verdana, Arial, sans-serif;
-    background-color: black;
-    color: white;
-    text-align: center;
-    width: $UnityWidth;
-    height: $sectionHeight;
-    float: left;
+  margin: 0 25px;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: $UnityWidth;
+  height: $sectionHeight;
+  float: left;
 
   a:link, a:visited {
     color: #bfbfbf;
@@ -58,6 +58,7 @@
   }
 
   div#unityPlayer {
+    z-index: -2;
     cursor: default;
     height: 600px;
     width: 960px;
