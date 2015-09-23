@@ -4,8 +4,12 @@ block content
 
   body(ng-app='app')
     .wrapper
-      .iframeControllerHolder(ng-controller='achievementPopupCtrl as ctrl')
-        iframe(src='achievementPopup.html', ng-show='ctrl.displayPopup()')
+      //- tried the below, but its transparency didn't work in IE and it was under
+      //- the Unity player in Firefox (windows). So just going to use the div below
+      //- the webplayer, which is the only way to get consistent results (all browsers, Mac or Windows).
+      //-
+      //- .iframeControllerHolder(ng-controller='achievementPopupCtrl as ctrl')
+      //-   iframe(src='achievementPopup.html', ng-show='ctrl.displayPopup()')
       .unityPlayerSection
         //- p.header
         //-   span Unity Web Player | Earth Invasion
