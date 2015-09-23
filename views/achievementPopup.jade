@@ -1,0 +1,12 @@
+extends ./partials/_layout.jade
+
+block content
+  .achievementiFrameWrapper(ng-app='iFrameApp')
+    .achievementPopupWrapper(ng-controller='achievementPopupCtrl as ctrl')
+      .achievement-banner(ng-show='ctrl.displayPopup()')
+        .achievement-icon
+          span.icon
+            span.icon-trophy
+        .achievement-text
+          p.achievement-notification Achievement Unlocked
+          p.achievement-name {{ctrl.title}}

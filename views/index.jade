@@ -4,6 +4,8 @@ block content
 
   body(ng-app='app')
     .wrapper
+      .iframeControllerHolder(ng-controller='achievementPopupCtrl as ctrl')
+        iframe(src='achievementPopup.html', ng-show='ctrl.displayPopup()')
       .unityPlayerSection
         //- p.header
         //-   span Unity Web Player | Earth Invasion

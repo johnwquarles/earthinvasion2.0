@@ -45,6 +45,10 @@ app.get('/', function (req, res) {
   req.session.username ? res.render('index', { title: 'Unity Web Player | Earth Invasion' }) : res.redirect('/login');
 });
 
+app.get('/achievementPopup.html', function (req, res) {
+  res.render('achievementPopup', {title: 'Achievement Unlocked!'});
+});
+
 app.use('/', userRoutes);
 
 app.use('/usernameReq', function (req, res) {
