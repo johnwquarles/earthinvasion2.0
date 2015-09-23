@@ -1,5 +1,5 @@
 .achievementPopupWrapper(ng-controller='achievementPopupCtrl as ctrl')
-  .achievement-banner
+  .achievement-banner(ng-show='ctrl.displayPopup()')
     .achievement-icon
       span.icon
         span.icon-trophy
