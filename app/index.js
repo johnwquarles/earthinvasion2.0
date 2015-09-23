@@ -17,11 +17,12 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')))
 
 // ========== Session ==========
-
-var newSession = require('express-session')({
+var redisHost = process.env.REDIS_URL ? 'ec2-54-235-152-160.compute-1.amazonaws.com': 'localhost',
+    redisPort = process.env.REDIS_URL ? 17469 : 6376,
+    newSession = require('express-session')({
   secret: 'iHopeDubstepNeverEnds',
-  store: new redisStore({ host: process.env.REDIS_URL ? 'ec2-54-235-152-160.compute-1.amazonaws.com': 'localhost',
-                          port: process.env.REDIS_URL ? 17469: 6376,
+  store: new redisStore({ host: redisHost,
+                          port: redisPort,
                           client: redisClient,
                           ttl: 260
                         }),
