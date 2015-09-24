@@ -6,6 +6,8 @@
   box-sizing: border-box;
   position: relative;
   top: 10px;
+  // overlays perfectly, but only on Mac.
+  // top: -90px;
 }
 
 .achievement-banner {
@@ -14,7 +16,7 @@
   font-size: 350%;
   width: 10em;
   color: #efefef;
-  background: rgba(61, 65, 66, 0.6);
+  background: rgba(61, 65, 66, 1);
   border-radius: 10em;
   position: relative;
   padding: .125em;
