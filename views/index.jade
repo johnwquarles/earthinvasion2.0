@@ -8,19 +8,13 @@ block content
       //- the Unity player in Firefox (windows). So just going to use the div below
       //- the webplayer, which is the only way to get consistent results (all browsers, Mac or Windows).
       //-
-      //- .iframeControllerHolder(ng-controller='achievementPopupCtrl as ctrl')
-      //-   iframe(src='achievementPopup.html', ng-show='ctrl.displayPopup()')
+      .iframeControllerHolder(ng-controller='achievementPopupCtrl as ctrl')
+        iframe(src='achievementPopup.html', ng-show='ctrl.displayPopup()', allowTransparency='true')
       .unityPlayerSection
-        //- p.header
-        //-   span Unity Web Player | Earth Invasion
         .content
           #unityPlayer
             .missing
               a(href='http://unity3d.com/webplayer/', title='Unity Web Player. Install now!')
                 img(alt='Unity Web Player. Install now!', src='http://webplayer.unity3d.com/installation/getunity.png', width='193', height='63')
-        //- p.footer
-        //-   | « created with 
-        //-   a(href='http://unity3d.com/unity/', title='Go to unity3d.com') Unity
-        //-   |  »
         include ./partials/_achievementPopup.jade
       .angularAppSection(ng-view)
