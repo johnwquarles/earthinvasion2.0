@@ -5,7 +5,7 @@ var config = {
     enableDebugging:"0",
     bordercolor: "000000",
     backgroundcolor: "000000",
-    backgroundimage: "img/starry.jpg",
+    backgroundimage: "img/starry.png",
     logoimage: "img/quarles.png"
   }
 };

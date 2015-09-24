@@ -25,6 +25,7 @@ angular.module('app.controllers')
   }
 
   function errHandle (err) {
+    console.log('got an error: ')
     console.log(err);
   }
 })
