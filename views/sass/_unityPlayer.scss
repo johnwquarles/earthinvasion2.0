@@ -66,4 +66,8 @@
   div#ChromeMissingUnityPlayer {
     width: 80%;
   }
+
+  #unityPlayer>* {
+    outline: 0;
+  }
 }

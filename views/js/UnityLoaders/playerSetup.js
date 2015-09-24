@@ -1,7 +1,12 @@
 var config = {
   width: 960,
   height: 600,
-  params: { enableDebugging:"0" }
+  params: {
+    enableDebugging:"0",
+    bordercolor: "000000",
+    backgroundcolor: "000000",
+    logoimage: "img/quarles.png"
+  }
 };
 
 var u = new UnityObject2(config);
