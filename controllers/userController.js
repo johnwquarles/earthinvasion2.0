@@ -7,6 +7,7 @@ var path = require('path'),
 
 var username;
 
+// for Unity to get the user's username. It will default to "Player" if this fails.
 module.exports.username = function (req, res) {
   if (username) res.send(username);
   else res.end();
@@ -16,6 +17,7 @@ module.exports.login = function (req, res) {
   var userData = makeUserDataObj(req);
   userModel.login(userData, function (err, userObj) {
     if (err) {
+      res.status(401).send(`Bad username or password!`);
       return console.log(chalk.red.dim(
         `     = tried to log in user ${req.query.username} but got error: ${err}`
         )
@@ -35,6 +37,7 @@ module.exports.register = function (req, res) {
   var userData = makeUserDataObj(req);
   userModel.createUser(userData, function (err) {
     if (err) {
+      res.status(401).send(`A user with that username already exists!`)
       return console.log(chalk.red.dim(
         `     = tried to create user ${req.query.username} but got error: ${err}`
         )

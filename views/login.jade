@@ -1,26 +1,30 @@
 extends ./partials/_layout.jade
 
 block content
-  .container.login(ng-app='app')
-    p Welcome to EarthInvasion 2.0!
-    form(ng-controller='loginCtrl as login')
-      .form-group
-        label(for='username') Username
-        img.invadera(src='../img/sprites/invaderA.png', onmouseover="this.src='../img/sprites/invaderA2.png'", onmouseout="this.src='../img/sprites/invaderA.png'")
-        input(id='username', placeholder='username', type='text', ng-model='login.username')
-      .form-group
-        label(for='password') Password
-        img.invaderb(src='../img/sprites/invaderB.png', onmouseover="this.src='../img/sprites/invaderB2.png'", onmouseout="this.src='../img/sprites/invaderB.png'")
-        input(id='password', placeholder='password', type='password', ng-model='login.password')
-      .form-group
-        .button-group-container
-          .btn-group.btn-group-md(role='group')
-            button.btn.btn-success(ng-click='login.login()') Log In
-            button.btn.btn-info(ng-click='login.register()') Register
-            button.btn.btn-primary(ng-click='login.guest()') Play as Guest
-  .bottomTextContainer
-    .row
-      p.col-xs-4.col-xs-offset-4 Register and play in one click!
-    .row
-      p.col-xs-4.col-xs-offset-4 Note: Unity's Webplayer does not currently play nice with Chrome. Please access Earth Invasion with Firefox, Safari or Internet Explorer.
-  link(rel='stylesheet', href='css/login.css')
+  .appHolder(ng-app='app')
+    .controllerHolder(ng-controller='loginCtrl as login')
+      .container.login
+        p Welcome to EarthInvasion 2.0!
+        form
+          .form-group
+            label(for='username') Username
+            img.invadera(src='../img/sprites/invaderA.png', onmouseover="this.src='../img/sprites/invaderA2.png'", onmouseout="this.src='../img/sprites/invaderA.png'")
+            input(id='username', placeholder='username', type='text', ng-model='login.username')
+          .form-group
+            label(for='password') Password
+            img.invaderb(src='../img/sprites/invaderB.png', onmouseover="this.src='../img/sprites/invaderB2.png'", onmouseout="this.src='../img/sprites/invaderB.png'")
+            input(id='password', placeholder='password', type='password', ng-model='login.password')
+          .form-group
+            .button-group-container
+              .btn-group.btn-group-md(role='group')
+                button.btn.btn-success(ng-click='login.login()') Log In
+                button.btn.btn-info(ng-click='login.register()') Register
+                button.btn.btn-primary(ng-click='login.guest()') Play as Guest
+      .bottomTextContainer
+        .row.error
+          p.col-xs-4.col-xs-offset-4(ng-style="{visibility : login.displayError()? 'visible': 'hidden'}") Error: {{login.errorMsg}}
+        .row
+          p.col-xs-4.col-xs-offset-4 Register and play in one click!
+        .row
+          p.col-xs-4.col-xs-offset-4 Note: Unity's Webplayer does not currently play nice with Chrome. Please access Earth Invasion with Firefox, Safari or Internet Explorer.
+      link(rel='stylesheet', href='css/login.css')
