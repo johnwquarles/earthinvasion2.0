@@ -9,6 +9,8 @@
       font-family: "Trebuchet MS";
       font-size: 16px;
       th {
+        white-space: nowrap;
+        overflow: hidden;
         cursor: pointer;
         font-size: 10px;
         font-family: 'early_gameboyregular', Arial, sans-serif;
@@ -28,6 +30,8 @@
       font-family: "Trebuchet MS";
       font-size: 16px;
       th {
+        white-space: nowrap;
+        overflow: hidden;
         cursor: pointer;
         font-size: 10px;
         font-family: 'early_gameboyregular', Arial, sans-serif;
