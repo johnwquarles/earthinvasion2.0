@@ -5,14 +5,6 @@ var path = require('path'),
     guestGen = require(path.join(__dirname, '/../app/guestGen')),
     chalk = require('chalk');
 
-var username;
-
-// for Unity to get the user's username. It will default to "Player" if this fails.
-module.exports.username = function (req, res) {
-  if (username) res.send(username);
-  else res.end();
-}
-
 module.exports.login = function (req, res) {
   var userData = makeUserDataObj(req);
   userModel.login(userData, function (err, userObj) {
@@ -25,7 +17,6 @@ module.exports.login = function (req, res) {
     }
     req.session.regenerate(function () {
       req.session.username = userObj.username;
-      username = userObj.username;
       console.log(chalk.yellow(`      === session ID is currently: ${req.sessionID}`));
       console.log(chalk.green.dim(`     = user ${userObj.username} logged in!`))
       res.end();

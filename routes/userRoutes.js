@@ -10,7 +10,6 @@ router
   .get('/loginReq', ctrl.login)
   .get('/registerReq', ctrl.register)
   .get('/guestReq', ctrl.guest)
-  .get('/logoutReq', ctrl.logout)
-  .get('/usernameReq', ctrl.username);
+  .get('/logoutReq', ctrl.logout);
 
 module.exports = router;
